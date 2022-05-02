@@ -23,7 +23,7 @@ jobs:
           
       - uses: azure/webapps-deploy@v2
       - with:
-          app-name: 'test123iamops'
+          app-name: 'gitdev0321'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           images: 'iamopstesting.azurecr.io/test:${{ github.sha }}'
 
