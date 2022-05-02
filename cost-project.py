@@ -17,4 +17,4 @@ COST_CLIENT = CostManagementClient(CREDENTIAL)
 
 TEST = COST_CLIENT.query.usage("/subscriptions/f5ccd026-1c6d-42d9-9854-392865023846/", )
 
-print(TEST)
+print(TEST),
