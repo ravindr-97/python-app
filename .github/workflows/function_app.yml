@@ -1,9 +1,7 @@
+
 # This is a basic workflow to help you get started with Actions
 name: AZURE push image and deploy app service
-   password: ${{ secrets.REGISTRY_PASSWORD }}
-
-      - run: |
-          on:
+on:
 #   push:
   workflow_dispatch:
 jobs:
@@ -17,11 +15,15 @@ jobs:
         with:
           login-server: gitcontaineryprod.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
-       docker build . -t gitcontaineryprod.azurecr.io/sitedev:${{ github.sha }}
-          docker push sitedev.azurecr.io/sitedev:${{ github.sha }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - run: |
+          docker build . -t gitcontaineryprod.azurecr.io/gitcontaineryprod:${{ github.sha }}
+          docker push gitcontaineryprod.azurecr.io/gitcontaineryprod:${{ github.sha }}
           
       - uses: azure/webapps-deploy@v2
       - with:
-          app-name: 'gitdev0321'
+          app-name: 'test123iamops'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           images: 'iamopstesting.azurecr.io/test:${{ github.sha }}'
+
