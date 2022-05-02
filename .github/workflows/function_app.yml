@@ -13,9 +13,9 @@ jobs:
       
       - uses: azure/docker-login@v1
         with:
-          login-server: gitcontaineryprod.azurecr.io
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          login-server: 'gitcontaineryprod.azurecr.io'
+          username: 'gitcontaineryprod'
+          password: 's7mAHZ+HfzASwYKGKbh9n86M7IX5TcAW'
 
       - run: |
           docker build . -t gitcontaineryprod.azurecr.io/gitcontaineryprod:${{ github.sha }}
